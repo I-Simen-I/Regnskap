@@ -4,21 +4,18 @@
       xmlns:p="http://primefaces.org/ui">
 <h:head>
     <script name="jquery/jquery.js" library="primefaces"></script>
-    <title>Opprett kategori</title>
+    <title>Regnskap</title>
 </h:head>
 
 <h:form>
     <p:growl id="messages"></p:growl>
 
-    <h1>Opprett kategori</h1>
+    <h1>Regnskap meny</h1>
 
-    <p:panelGrid columns="2">
-        <p:outputLabel for="kategoriNavn" value="Kategori navn:"/>
-        <p:inputText id="kategoriNavn" value="#{kategoriAction.kategori.navn}" required="true">
-            <f:validateLength minimum="3" maximum="55"/>
-        </p:inputText>
-    </p:panelGrid>
 
-    <p:commandButton value="Register kategori" action="#{kategoriAction.save()}" update="messages"/>
+    <p:link outcome="pages/kategori" value="Gaa til kategorioversikt">
+        <f:param name="user" value="Simen"/>
+    </p:link>
+
 </h:form>
 </html>

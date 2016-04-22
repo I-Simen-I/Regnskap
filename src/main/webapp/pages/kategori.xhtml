@@ -1,12 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <title>Kategori</title>
-</head>
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <script name="jquery/jquery.js" library="primefaces"></script>
+    <title>Opprett kategori</title>
+</h:head>
 
-</body>
+<h:form>
+    <p:growl id="messages"></p:growl>
+
+    <f:metadata>
+        <f:viewParam name="user" value="#{kategoriAction.form.user}"/>
+    </f:metadata>
+
+    <h1>Kategorioversikt</h1>
+
+    <p:panelGrid columns="2">
+        <p:outputLabel for="kategoriNavn" value="Kategori navn:"/>
+        <p:inputText id="kategoriNavn" value="#{kategoriAction.form.kategoriNavn}" required="true">
+            <f:validateLength minimum="3" maximum="55"/>
+        </p:inputText>
+    </p:panelGrid>
+
+    <p:commandButton value="Register kategori" action="#{kategoriAction.save()}" update="messages"/>
+</h:form>
 </html>

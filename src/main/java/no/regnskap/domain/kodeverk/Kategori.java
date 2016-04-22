@@ -6,6 +6,17 @@ import java.util.Date;
 @Entity
 @Table(name = "KATEGORI_T")
 public class Kategori {
+
+    public Kategori() {
+
+    }
+
+    public Kategori(String navn, Date opprettet, String opprettetAv) {
+        setNavn(navn);
+        setOpprettet(opprettet);
+        setOpprettetAv(opprettetAv);
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "KATEGORI_ID", nullable = false)
@@ -18,11 +29,14 @@ public class Kategori {
     @Column(name = "OPPRETTET", nullable = false)
     private Date opprettet;
 
-    public long getKategoriType() {
+    @Column(name = "OPPRETTET_AV", nullable = false)
+    private String opprettetAv;
+
+    public long getKategoriId() {
         return kategoriId;
     }
 
-    public void setKategoriType(long kategoriId) {
+    public void setKategoriId(long kategoriId) {
         this.kategoriId = kategoriId;
     }
 
@@ -40,5 +54,13 @@ public class Kategori {
 
     public void setOpprettet(Date opprettet) {
         this.opprettet = opprettet;
+    }
+
+    public String getOpprettetAv() {
+        return opprettetAv;
+    }
+
+    public void setOpprettetAv(String opprettetAv) {
+        this.opprettetAv = opprettetAv;
     }
 }

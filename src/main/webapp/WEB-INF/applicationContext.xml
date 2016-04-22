@@ -16,8 +16,8 @@
           destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://192.168.0.50:3306/regnskap"/>
-        <property name="username" value=""/>
-        <property name="password" value=""/>
+        <property name="username" value="regnskap"/>
+        <property name="password" value="regnskap_1234"/>
     </bean>
 
     <!-- Define SessionFactory bean -->
@@ -44,7 +44,7 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!-- Action beans -->
-    <bean id="kategoriAction" class="no.regnskap.prime.faces.beans.KategoriAction">
+    <bean id="kategoriAction" class="no.regnskap.pages.kategori.KategoriAction">
         <property name="service" ref="kategoriService"/>
     </bean>
 </beans>
