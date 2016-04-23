@@ -11,11 +11,30 @@
     <p:growl id="messages"></p:growl>
 
     <f:metadata>
-        <f:viewParam name="user" value="#{kategoriAction.form.user}"/>
+        <f:viewParam name="user" value="#{kategoriAction.user}"/>
     </f:metadata>
 
     <h1>Kategorioversikt</h1>
+    <h:panelGroup id="kategoriList">
+        <p:outputLabel value="Kategorier"/>
+        <p:dataTable value="#{kategoriAction.kategoriList}" var="kategori">
+            <p:column headerText="Navn">
+                <h:outputText value="#{kategori.navn}"/>
+            </p:column>
 
+            <p:column headerText="Opprettet av">
+                <h:outputText value="#{kategori.opprettetAv}"/>
+            </p:column>
+
+            <p:column headerText="Dato opprettet">
+                <h:outputText value="#{kategori.opprettet}">
+                    <f:convertDateTime type="date" pattern="dd-MM-YYYY"/>
+                </h:outputText>
+            </p:column>
+        </p:dataTable>
+    </h:panelGroup>
+
+    <p:outputLabel value="Opprett kategori"/>
     <p:panelGrid columns="2">
         <p:outputLabel for="kategoriNavn" value="Kategori navn:"/>
         <p:inputText id="kategoriNavn" value="#{kategoriAction.form.kategoriNavn}" required="true">

@@ -32,7 +32,7 @@ public class KategoriDaoImpl implements KategoriDao {
     @Override
     public List<Kategori> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        return (List<Kategori>) session.createQuery("from KATRGORI_T").list();
+        return (List<Kategori>) session.createCriteria(Kategori.class).list();
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
