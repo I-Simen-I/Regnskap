@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,8 +27,20 @@ public class KategoriAction extends CommonAction {
     public void save() {
         Kategori kategori = new Kategori(getForm().getKategoriNavn(), new Date(), getUser());
         service.save(kategori);
+        form.setKategoriNavn(null);
         kategoriList = service.findAll();
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Kategorien " + kategori.getNavn() + " er nå opprettet"));
+    }
+
+    public List<String> completeText(String query) {
+        List<String> results = new ArrayList<>();
+        for (Kategori kategori : getKategoriList()) {
+            if (kategori.getNavn().toLowerCase().startsWith(query.toLowerCase())) {
+                results.add(kategori.getNavn());
+            }
+        }
+
+        return results;
     }
 
     public KategoriForm getForm() {

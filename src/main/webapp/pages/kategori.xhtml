@@ -3,19 +3,20 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <script name="jquery/jquery.js" library="primefaces"></script>
     <title>Opprett kategori</title>
 </h:head>
 
-<h:form>
-    <p:growl id="messages"></p:growl>
+<h:form id="#{commonAction.formId}">
+    <p:growl id="messages"/>
 
     <f:metadata>
         <f:viewParam name="user" value="#{kategoriAction.user}"/>
+        <f:viewAction action="#{kategoriAction.onload}"/>
     </f:metadata>
 
-    <h1>Kategorioversikt</h1>
     <h:panelGroup id="kategoriList">
+        <h1>Kategorioversikt</h1>
+
         <p:outputLabel value="Kategorier"/>
         <p:dataTable value="#{kategoriAction.kategoriList}" var="kategori">
             <p:column headerText="Navn">
@@ -34,14 +35,25 @@
         </p:dataTable>
     </h:panelGroup>
 
-    <p:outputLabel value="Opprett kategori"/>
-    <p:panelGrid columns="2">
-        <p:outputLabel for="kategoriNavn" value="Kategori navn:"/>
-        <p:inputText id="kategoriNavn" value="#{kategoriAction.form.kategoriNavn}" required="true">
-            <f:validateLength minimum="3" maximum="55"/>
-        </p:inputText>
-    </p:panelGrid>
+    <h:panelGroup id="addKategori">
+        <p:outputLabel value="Opprett kategori"/>
+        <p:panelGrid columns="2">
+            <p:outputLabel for="kategoriNavn" value="Kategori navn:"/>
+            <p:autoComplete id="kategoriNavn" value="#{kategoriAction.form.kategoriNavn}"
+                            completeMethod="#{kategoriAction.completeText}"
+                            maxResults="5"
+                            required="true">
+                <f:validateLength minimum="3" maximum="55"/>
+                <f:validateRegex pattern="^[a-zA-Z ]+$"/>
+            </p:autoComplete>
+        </p:panelGrid>
 
-    <p:commandButton value="Register kategori" action="#{kategoriAction.save()}" update="messages"/>
+        <p:commandButton value="Register kategori"
+                         alt="Register kategori"
+                         action="#{kategoriAction.save()}"
+                         update="messages formId:kategoriList formId:addKategori"
+                         icon="ui-icon-disk"
+        />
+    </h:panelGroup>
 </h:form>
 </html>
