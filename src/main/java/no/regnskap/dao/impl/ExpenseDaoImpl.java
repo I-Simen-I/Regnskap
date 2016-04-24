@@ -1,8 +1,8 @@
 package no.regnskap.dao.impl;
 
-import no.regnskap.dao.UtgiftDao;
+import no.regnskap.dao.ExpenseDao;
 import no.regnskap.domain.Category;
-import no.regnskap.domain.Utgift;
+import no.regnskap.domain.Expense;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,40 +11,40 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Component("utgiftDao")
+@Component("expenseDao")
 @Transactional
-public class UtgiftDaoImpl implements UtgiftDao {
+public class ExpenseDaoImpl implements ExpenseDao {
 
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
-    public void save(Utgift utgift) {
-        getSession().save(utgift);
+    public void save(Expense expense) {
+        getSession().save(expense);
     }
 
     @Override
-    public Utgift findById(long id) {
-        return getSession().get(Utgift.class, id);
+    public Expense findById(long id) {
+        return getSession().get(Expense.class, id);
     }
 
     @Override
-    public List<Utgift> findAll() {
-        return getSession().createCriteria(Utgift.class).list();
+    public List<Expense> findAll() {
+        return getSession().createCriteria(Expense.class).list();
     }
 
     @Override
-    public List findUtgifterByCategory(Category category) {
+    public List findExpensesByCategory(Category category) {
         return null;
     }
 
     @Override
-    public List findUtgifterByUser(String user) {
+    public List findExpensesByUser(String user) {
         return null;
     }
 
     @Override
-    public List findUtgifterByUserAndCategory() {
+    public List findExpensesByUserAndCategory() {
         return null;
     }
 
