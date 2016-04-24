@@ -41,7 +41,7 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!-- Action beans -->
-    <bean id="kategoriAction" class="no.regnskap.pages.kategori.KategoriAction">
-        <property name="service" ref="kategoriService"/>
+    <bean id="categoryAction" class="no.regnskap.pages.category.CategoryAction">
+        <property name="service" ref="categoryService"/>
     </bean>
 </beans>

@@ -16,7 +16,7 @@ public class Utgift {
 
     @ManyToOne
     @JoinColumn(name = "KATEGORI_T", nullable = false)
-    private Kategori kategoriType;
+    private Category kategoriType;
 
     @Column(name = "BELOP", nullable = false)
     private double belop;
@@ -47,11 +47,11 @@ public class Utgift {
         this.maaned = maaned;
     }
 
-    public Kategori getKategoriType() {
+    public Category getKategoriType() {
         return kategoriType;
     }
 
-    public void setKategoriType(Kategori kategoriType) {
+    public void setKategoriType(Category kategoriType) {
         this.kategoriType = kategoriType;
     }
 

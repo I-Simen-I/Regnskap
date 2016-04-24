@@ -1,7 +1,7 @@
 package no.regnskap.dao.impl;
 
-import no.regnskap.dao.KategoriDao;
-import no.regnskap.domain.Kategori;
+import no.regnskap.dao.CategoryDao;
+import no.regnskap.domain.Category;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,25 +10,25 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Component("kategoriDao")
+@Component("categoryDao")
 @Transactional
-public class KategoriDaoImpl implements KategoriDao {
+public class CategoryDaoImpl implements CategoryDao {
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
-    public void save(Kategori kategori) {
-        getSession().save(kategori);
+    public void save(Category category) {
+        getSession().save(category);
     }
 
     @Override
-    public Kategori findById(long id) {
-        return (Kategori) getSession().get(Kategori.class, id);
+    public Category findById(long id) {
+        return (Category) getSession().get(Category.class, id);
     }
 
     @Override
-    public List<Kategori> findAll() {
-        return (List<Kategori>) getSession().createCriteria(Kategori.class).list();
+    public List<Category> findAll() {
+        return (List<Category>) getSession().createCriteria(Category.class).list();
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

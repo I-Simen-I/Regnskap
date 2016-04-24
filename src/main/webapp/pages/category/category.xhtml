@@ -11,14 +11,14 @@
     <p:growl id="messages"/>
 
     <f:metadata>
-        <f:viewParam name="user" value="#{kategoriAction.user}"/>
-        <f:viewAction action="#{kategoriAction.onload}"/>
+        <f:viewParam name="user" value="#{categoryAction.user}"/>
+        <f:viewAction action="#{categoryAction.onload}"/>
     </f:metadata>
 
     <h1>Kategorioversikt</h1>
 
-    <ui:include src="kategori-kategoriliste.xhtml"/>
+    <ui:include src="category-categorylist.xhtml"/>
 
-    <ui:include src="kategori-opprettkategori.xhtml"/>
+    <ui:include src="category-createcategory.xhtml"/>
 </h:form>
 </html>
