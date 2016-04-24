@@ -18,7 +18,7 @@ public class Kategori {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "KATEGORI_ID", nullable = false)
     private long kategoriId;
 
