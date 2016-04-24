@@ -1,17 +1,19 @@
 package no.regnskap.pages;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class CommonAction {
     private String user;
 
-    @PostConstruct
     public void onload() {
 
+    }
+
+    public String getFormId() {
+        return "formId";
     }
 
     public String getUser() {
