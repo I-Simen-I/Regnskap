@@ -1,0 +1,27 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:panelGroup id="opprettKategori">
+        <p:outputLabel value="Opprett kategori"/>
+        <p:panelGrid columns="2">
+            <p:outputLabel for="kategoriNavn" value="Kategori navn:"/>
+            <p:autoComplete id="kategoriNavn" value="#{kategoriAction.form.kategoriNavn}"
+                            completeMethod="#{kategoriAction.completeText}"
+                            maxResults="5"
+                            required="true">
+                <f:validateLength minimum="3" maximum="55"/>
+                <f:validateRegex pattern="^[a-zA-Z ]+$"/>
+            </p:autoComplete>
+        </p:panelGrid>
+
+        <p:commandButton value="Register kategori"
+                         alt="Register kategori"
+                         action="#{kategoriAction.save()}"
+                         update="messages formId:kategoriListe formId:opprettKategori"
+                         icon="ui-icon-disk"
+        />
+    </h:panelGroup>
+</ui:composition>

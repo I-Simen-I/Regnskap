@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <title>Regnskap</title>
+</h:head>
+
+<h:form id="#{commonAction.formId}">
+    <p:growl id="messages"/>
+
+    <f:metadata>
+        <f:viewParam name="user" value="#{kategoriAction.user}"/>
+        <f:viewAction action="#{kategoriAction.onload}"/>
+    </f:metadata>
+
+    <h1>Kategorioversikt</h1>
+
+    <ui:include src="kategori-kategoriliste.xhtml"/>
+
+    <ui:include src="kategori-opprettkategori.xhtml"/>
+</h:form>
+</html>
