@@ -18,24 +18,24 @@ public class KategoriDaoImpl implements KategoriDao {
 
     @Override
     public void save(Kategori kategori) {
-        Session session = sessionFactory.getCurrentSession();
-        session.save(kategori);
+        getSession().save(kategori);
     }
-
 
     @Override
     public Kategori findById(long id) {
-        Session session = sessionFactory.getCurrentSession();
-        return (Kategori) session.get(Kategori.class, id);
+        return (Kategori) getSession().get(Kategori.class, id);
     }
 
     @Override
     public List<Kategori> findAll() {
-        Session session = sessionFactory.getCurrentSession();
-        return (List<Kategori>) session.createCriteria(Kategori.class).list();
+        return (List<Kategori>) getSession().createCriteria(Kategori.class).list();
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
+    }
+
+    private Session getSession() {
+        return sessionFactory.getCurrentSession();
     }
 }
