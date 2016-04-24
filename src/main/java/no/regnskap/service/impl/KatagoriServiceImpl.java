@@ -1,7 +1,7 @@
 package no.regnskap.service.impl;
 
 import no.regnskap.dao.KategoriDao;
-import no.regnskap.domain.kodeverk.Kategori;
+import no.regnskap.domain.Kategori;
 import no.regnskap.service.KategoriService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package no.regnskap.domain.kodeverk;
+package no.regnskap.domain;
 
 import javax.persistence.*;
 import java.util.Date;

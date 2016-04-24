@@ -1,8 +1,8 @@
 package no.regnskap.dao.impl;
 
 import no.regnskap.dao.UtgiftDao;
+import no.regnskap.domain.Kategori;
 import no.regnskap.domain.Utgift;
-import no.regnskap.domain.kodeverk.Kategori;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

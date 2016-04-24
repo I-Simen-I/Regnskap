@@ -1,6 +1,6 @@
 package no.regnskap.pages.kategori;
 
-import no.regnskap.domain.kodeverk.Kategori;
+import no.regnskap.domain.Kategori;
 import no.regnskap.pages.CommonAction;
 import no.regnskap.service.KategoriService;
 import org.springframework.beans.factory.annotation.Autowired;

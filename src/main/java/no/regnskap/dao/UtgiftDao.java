@@ -1,7 +1,7 @@
 package no.regnskap.dao;
 
+import no.regnskap.domain.Kategori;
 import no.regnskap.domain.Utgift;
-import no.regnskap.domain.kodeverk.Kategori;
 
 import java.util.List;
 

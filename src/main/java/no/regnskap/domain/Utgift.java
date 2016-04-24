@@ -1,7 +1,5 @@
 package no.regnskap.domain;
 
-import no.regnskap.domain.kodeverk.Kategori;
-
 import javax.persistence.*;
 import java.util.Date;
 
