@@ -35,6 +35,16 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryDao.getAllCategoryTypes();
     }
 
+    @Override
+    public List<Category> findCategoriesByCategoryType(CategoryType categoryType) {
+        return null;
+    }
+
+    @Override
+    public List<Category> findCategoriesByUserId(long userId) {
+        return null;
+    }
+
     public void setCategoryDao(CategoryDao categoryDao) {
         this.categoryDao = categoryDao;
     }

@@ -14,4 +14,8 @@ public interface CategoryService {
     List<Category> getAllCategories();
 
     List<CategoryType> getAllCategoryTypes();
+
+    List<Category> findCategoriesByCategoryType(CategoryType categoryType);
+
+    List<Category> findCategoriesByUserId(long userId);
 }
