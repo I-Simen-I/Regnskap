@@ -1,6 +1,7 @@
 package no.regnskap.service;
 
 import no.regnskap.domain.Category;
+import no.regnskap.domain.CategoryType;
 
 import java.util.List;
 
@@ -10,5 +11,7 @@ public interface CategoryService {
 
     Category findById(long id);
 
-    List<Category> findAll();
+    List<Category> getAllCategories();
+
+    List<CategoryType> getAllCategoryTypes();
 }

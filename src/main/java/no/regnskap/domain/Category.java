@@ -7,6 +7,25 @@ import java.util.Date;
 @Table(name = "CATEGORY")
 public class Category {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "CATEGORY_ID", nullable = false)
+    private long categoryId;
+
+    @Column(name = "NAME", nullable = false)
+    private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "CATEGORY_TYPE", nullable = false)
+    private CategoryType categoryType;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "CREATED", nullable = false)
+    private Date created;
+
+    @Column(name = "CREATED_BY", nullable = false)
+    private String createdBy;
+
     public Category() {
 
     }
@@ -16,21 +35,6 @@ public class Category {
         setCreated(created);
         setCreatedBy(createdBy);
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CATEGORY_ID", nullable = false)
-    private long categoryId;
-
-    @Column(name = "NAME", nullable = false)
-    private String name;
-
-    @Temporal(TemporalType.DATE)
-    @Column(name = "CREATED", nullable = false)
-    private Date created;
-
-    @Column(name = "CREATED_BY", nullable = false)
-    private String createdBy;
 
     public long getCategoryId() {
         return categoryId;
@@ -46,6 +50,14 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public CategoryType getCategoryType() {
+        return categoryType;
+    }
+
+    public void setCategoryType(CategoryType categoryType) {
+        this.categoryType = categoryType;
     }
 
     public Date getCreated() {

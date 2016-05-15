@@ -2,6 +2,7 @@ package no.regnskap.dao.impl;
 
 import no.regnskap.dao.CategoryDao;
 import no.regnskap.domain.Category;
+import no.regnskap.domain.CategoryType;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,13 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
-    public List<Category> findAll() {
+    public List<Category> getAllCategories() {
         return (List<Category>) getSession().createCriteria(Category.class).list();
+    }
+
+    @Override
+    public List<CategoryType> getAllCategoryTypes() {
+        return (List<CategoryType>) getSession().createCriteria(CategoryType.class).list();
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

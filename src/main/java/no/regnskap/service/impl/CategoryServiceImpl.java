@@ -2,6 +2,7 @@ package no.regnskap.service.impl;
 
 import no.regnskap.dao.CategoryDao;
 import no.regnskap.domain.Category;
+import no.regnskap.domain.CategoryType;
 import no.regnskap.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,8 +26,13 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> findAll() {
-        return categoryDao.findAll();
+    public List<Category> getAllCategories() {
+        return categoryDao.getAllCategories();
+    }
+
+    @Override
+    public List<CategoryType> getAllCategoryTypes() {
+        return categoryDao.getAllCategoryTypes();
     }
 
     public void setCategoryDao(CategoryDao categoryDao) {
