@@ -1,6 +1,7 @@
 package no.regnskap.pages.category;
 
 import no.regnskap.domain.Category;
+import no.regnskap.domain.CategoryType;
 import no.regnskap.pages.CommonAction;
 import no.regnskap.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,42 +14,36 @@ import java.util.List;
 
 public class CategoryAction extends CommonAction {
     private CategoryForm form = new CategoryForm();
-
-    private List<Category> categoryList;
+    private CategoryFormPopulator populator = new CategoryFormPopulator();
 
     @Autowired
     private CategoryService service;
 
     @Override
     public void onload() {
-        categoryList = service.findAll();
+        populator.populateForm(form, service.getAllCategories(), service.getAllCategoryTypes());
     }
 
     public void save() {
-        Category kategori = new Category(getForm().getCategoryName(), new Date(), getUser());
+        CategoryType categoryType = getForm().getCategoryTypeMap().get(getForm().getSelectedCategoryType());
+        Category kategori = new Category(getForm().getCategoryName(), categoryType, new Date(), getUser());
         service.save(kategori);
-        form.setCategoryName(null);
-        categoryList = service.findAll();
+        populator.resetForm(form, service.getAllCategories());
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Kategorien " + kategori.getName() + " er nå opprettet"));
     }
 
     public List<String> completeText(String query) {
         List<String> results = new ArrayList<>();
-        for (Category kategori : getCategoryList()) {
+        for (Category kategori : getForm().getSavedCategoryList()) {
             if (kategori.getName().toLowerCase().startsWith(query.toLowerCase())) {
                 results.add(kategori.getName());
             }
         }
-
         return results;
     }
 
     public CategoryForm getForm() {
         return form;
-    }
-
-    public List<Category> getCategoryList() {
-        return categoryList;
     }
 
     public void setService(CategoryService service) {

@@ -4,6 +4,7 @@
         xmlns:h="http://xmlns.jcp.org/jsf/html"
         xmlns:p="http://primefaces.org/ui"
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
     <h:panelGroup id="createCategory">
         <p:outputLabel value="Opprett kategori"/>
         <p:panelGrid columns="2">
@@ -11,16 +12,26 @@
             <p:autoComplete id="categoryName" value="#{categoryAction.form.categoryName}"
                             completeMethod="#{categoryAction.completeText}"
                             maxResults="5"
-                            required="true">
+                            required="true"
+                            requiredMessage="Navnet maa vare mellom 3 og 55 tegn langt">
                 <f:validateLength minimum="3" maximum="55"/>
                 <f:validateRegex pattern="^[a-zA-Z ]+$"/>
             </p:autoComplete>
+
+            <p:outputLabel for="selectCategoryType" value="Kategoritype"/>
+            <p:selectOneMenu id="selectCategoryType"
+                             required="true"
+                             requiredMessage="Type maa settes"
+                             value="#{categoryAction.form.selectedCategoryType}">
+                <f:selectItem itemLabel="Velg type" itemValue=""/>
+                <f:selectItems value="#{categoryAction.form.categoryTypeListAsString}"/>
+            </p:selectOneMenu>
         </p:panelGrid>
 
         <p:commandButton value="Register kategori"
                          alt="Register kategori"
                          action="#{categoryAction.save()}"
-                         update="messages formId:categoryList formId:createCategory"
+                         update="messages formId:savedCategoryList formId:createCategory"
                          icon="ui-icon-disk"
         />
     </h:panelGroup>

@@ -30,8 +30,9 @@ public class Category {
 
     }
 
-    public Category(String name, Date created, String createdBy) {
+    public Category(String name, CategoryType categoryType, Date created, String createdBy) {
         setName(name);
+        setCategoryType(categoryType);
         setCreated(created);
         setCreatedBy(createdBy);
     }

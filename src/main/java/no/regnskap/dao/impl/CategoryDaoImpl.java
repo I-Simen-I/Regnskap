@@ -24,7 +24,7 @@ public class CategoryDaoImpl implements CategoryDao {
 
     @Override
     public Category findById(long id) {
-        return (Category) getSession().get(Category.class, id);
+        return getSession().get(Category.class, id);
     }
 
     @Override
