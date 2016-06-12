@@ -18,3 +18,6 @@
 3. Opprett ny "Web Application Exploded War" fra modulen Regnskap
 4. Sett opp Tomcat server
 5. Legg til artifacten under build
+
+### YouTrack
+* Link: http://sohol.myjetbrains.com
