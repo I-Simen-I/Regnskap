@@ -8,16 +8,18 @@
 
 ### Utviklingsmiljø
 * Java 8
-* Tomcat 9
+* Wildfly 10.10
 * MySql
 * Intellij IDEA
 
-### Kjøre applikasjonen
+### Kjøre og deploye applikasjonen med IntelliJ IDEA
+
 1. Åpne modul settings
 2. Gå til Artifacts
 3. Opprett ny "Web Application Exploded War" fra modulen Regnskap
-4. Sett opp Tomcat server
-5. Legg til artifacten under build
+4. Åpne "Server configurations"
+5. Legg til bygging av artifakten Regnskap under "Before launch"
+6. Gå til fanen Deploy og legg til artifakten Regnskap
 
 ### YouTrack
 * Link: http://sohol.myjetbrains.com
