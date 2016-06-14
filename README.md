@@ -8,7 +8,7 @@
 
 ### Utviklingsmiljø
 * Java 8
-* Wildfly 10.10
+* Wildfly 10.10 / Tomcat 9
 * MySql
 * Intellij IDEA
 
