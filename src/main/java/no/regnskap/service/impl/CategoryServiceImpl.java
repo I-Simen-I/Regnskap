@@ -5,15 +5,21 @@ import no.regnskap.domain.Category;
 import no.regnskap.domain.CategoryType;
 import no.regnskap.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Component("categoryService")
+@Service("categoryService")
+@Transactional
 public class CategoryServiceImpl implements CategoryService {
 
+    private final CategoryDao categoryDao;
+
     @Autowired
-    private CategoryDao categoryDao;
+    public CategoryServiceImpl(CategoryDao categoryDao) {
+        this.categoryDao = categoryDao;
+    }
 
     @Override
     public void save(Category category) {
@@ -43,9 +49,5 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<Category> findCategoriesByUserId(long userId) {
         return null;
-    }
-
-    public void setCategoryDao(CategoryDao categoryDao) {
-        this.categoryDao = categoryDao;
     }
 }

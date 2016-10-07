@@ -7,15 +7,17 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Component("categoryDao")
-@Transactional
 public class CategoryDaoImpl implements CategoryDao {
+    private final SessionFactory sessionFactory;
+
     @Autowired
-    private SessionFactory sessionFactory;
+    public CategoryDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public void save(Category category) {
@@ -35,10 +37,6 @@ public class CategoryDaoImpl implements CategoryDao {
     @Override
     public List<CategoryType> getAllCategoryTypes() {
         return (List<CategoryType>) getSession().createCriteria(CategoryType.class).list();
-    }
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
     }
 
     private Session getSession() {
