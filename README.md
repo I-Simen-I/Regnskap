@@ -10,14 +10,14 @@
 * MySql
 * Intellij IDEA
 
-### Kj�re og deploye applikasjonen med IntelliJ IDEA
-1. �pne modul settings
-2. G� til Artifacts
+### Kjøre og deploye applikasjonen med IntelliJ IDEA
+1. Åpne modul settings
+2. Gå til Artifacts
 3. Opprett ny "Web Application Exploded War"
 4. Legg til alle tilgjengelige elementer
-5. �pne "Server configurations"
+5. Åpne "Server configurations"
 6. Legg til bygging av artifakten Regnskap under "Before launch"
-7. G� til fanen Deploy og legg til artifakten Regnskap
+7. Gå til fanen Deploy og legg til artifakten Regnskap
 
 ### YouTrack
 * Link: http://sohol.myjetbrains.com
