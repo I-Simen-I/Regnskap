@@ -1,8 +1,8 @@
 # Regnskap-Core
 
 ### Rammeverk
-* Hibernate 5.1
-* Spring 4.2.5
+* Hibernate
+* Spring
 
 ### Utviklingsmiljø
 * Java 8
