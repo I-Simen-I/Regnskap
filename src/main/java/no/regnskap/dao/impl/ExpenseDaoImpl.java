@@ -12,11 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Component("expenseDao")
-@Transactional
 public class ExpenseDaoImpl implements ExpenseDao {
+    private final SessionFactory sessionFactory;
 
     @Autowired
-    private SessionFactory sessionFactory;
+    public ExpenseDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public void save(Expense expense) {

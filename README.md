@@ -18,6 +18,8 @@
 5. Åpne "Server configurations"
 6. Legg til bygging av artifakten Regnskap under "Before launch"
 7. Gå til fanen Deploy og legg til artifakten Regnskap
+8. Start server
+9. Gå til http://localhost:8080/api/category/
 
 ### YouTrack
 * Link: http://sohol.myjetbrains.com

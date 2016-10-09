@@ -8,17 +8,16 @@
     <name>Regnskap-Core</name>
 
     <properties>
-        <springframework.version>4.2.5.RELEASE</springframework.version>
-        <hibernate.version>5.1.0.Final</hibernate.version>
+        <springframework.version>4.3.3.RELEASE</springframework.version>
+        <hibernate.version>5.2.3.Final</hibernate.version>
         <mySQL.driver.version>5.1.31</mySQL.driver.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
-        <apache.tomcat.version>9.0.0.M4</apache.tomcat.version>
+        <apache.tomcat.version>9.0.0.M10</apache.tomcat.version>
         <jackson.version>2.8.3</jackson.version>
 
         <!-- Test -->
         <junit.version>4.12</junit.version>
         <hamcrest.version>1.3</hamcrest.version>
-        <mockito.version>2.0.2-beta</mockito.version>
     </properties>
 
     <dependencies>

@@ -13,6 +13,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
+@RequestMapping(value = "/api/")
 @RestController
 public class CategoryRestController {
 
