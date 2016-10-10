@@ -25,8 +25,9 @@ public class Transaction {
     @Column(name = "CREATED", nullable = false)
     private Date created;
 
-    @Column(name = "CREATED_BY", nullable = false)
-    private String createdBy;
+    @ManyToOne
+    @JoinColumn(name = "USER_ID", nullable = false)
+    private User user;
 
     public long getTransactionId() {
         return transactionId;
@@ -68,11 +69,11 @@ public class Transaction {
         this.created = created;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public User getUser() {
+        return user;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

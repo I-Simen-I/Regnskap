@@ -23,18 +23,19 @@ public class Category {
     @Column(name = "CREATED", nullable = false)
     private Date created;
 
-    @Column(name = "CREATED_BY", nullable = false)
-    private String createdBy;
+    @ManyToOne
+    @JoinColumn(name = "USER_ID", nullable = false)
+    private User user;
 
     public Category() {
 
     }
 
-    public Category(String name, CategoryType categoryType, Date created, String createdBy) {
+    public Category(String name, CategoryType categoryType, Date created, User user) {
         setName(name);
         setCategoryType(categoryType);
         setCreated(created);
-        setCreatedBy(createdBy);
+        setUser(user);
     }
 
     public long getCategoryId() {
@@ -69,11 +70,11 @@ public class Category {
         this.created = created;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public User getUser() {
+        return user;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
