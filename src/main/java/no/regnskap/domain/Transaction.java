@@ -4,25 +4,22 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "EXPENSE")
-public class Expense {
+@Table(name = "TRANSACTION")
+public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "EXPENSE_ID", nullable = false)
-    private long expenceId;
-
-    @Column(name = "MONTH", nullable = false)
-    private String month;
+    @Column(name = "TRANSACTION_ID", nullable = false)
+    private long transactionId;
 
     @ManyToOne
     @JoinColumn(name = "CATEGORY_ID", nullable = false)
     private Category category;
 
-    @Column(name = "SUM", nullable = false)
-    private double sum;
-
     @Column(name = "DESCRIPTION")
     private String description;
+
+    @Column(name = "SUM", nullable = false)
+    private double sum;
 
     @Column(name = "CREATED", nullable = false)
     private Date created;
@@ -30,20 +27,12 @@ public class Expense {
     @Column(name = "CREATED_BY", nullable = false)
     private String createdBy;
 
-    public long getExpenceId() {
-        return expenceId;
+    public long getTransactionId() {
+        return transactionId;
     }
 
-    public void setExpenceId(long expenceId) {
-        this.expenceId = expenceId;
-    }
-
-    public String getMonth() {
-        return month;
-    }
-
-    public void setMonth(String month) {
-        this.month = month;
+    public void setTransactionId(long transactionId) {
+        this.transactionId = transactionId;
     }
 
     public Category getCategory() {
@@ -54,20 +43,20 @@ public class Expense {
         this.category = category;
     }
 
-    public double getSum() {
-        return sum;
-    }
-
-    public void setSum(double sum) {
-        this.sum = sum;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public double getSum() {
+        return sum;
+    }
+
+    public void setSum(double sum) {
+        this.sum = sum;
     }
 
     public Date getCreated() {

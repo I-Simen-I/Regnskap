@@ -16,10 +16,13 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private static final String REALM = "MY_TEST_REALM";
+    private static final String CATEGORY_USER = "CATEGORY_USER";
+    private static final String TRANSACTION_USER = "TRANSACTION_USER";
 
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("category_user").password("cat").roles("CAT_USER");
+        auth.inMemoryAuthentication().withUser(CATEGORY_USER.toLowerCase()).password("cat").roles(CATEGORY_USER);
+        auth.inMemoryAuthentication().withUser(TRANSACTION_USER.toLowerCase()).password("tra").roles(TRANSACTION_USER);
     }
 
     @Override
@@ -27,7 +30,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/category/**").hasRole("CAT_USER")
+                .antMatchers("/api/category/**").hasRole(CATEGORY_USER)
+                .antMatchers("/api/categoryType/**").hasRole(CATEGORY_USER)
+                .antMatchers("/api/transaction/**").hasRole(TRANSACTION_USER)
                 .and().httpBasic().realmName(REALM).authenticationEntryPoint(getBasicAuthEntryPoint())
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
