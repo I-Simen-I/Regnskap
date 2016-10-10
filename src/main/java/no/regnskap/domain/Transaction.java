@@ -21,6 +21,7 @@ public class Transaction {
     @Column(name = "SUM", nullable = false)
     private double sum;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "CREATED", nullable = false)
     private Date created;
 

@@ -58,7 +58,7 @@ public class CategoryRestController {
         return new ResponseEntity<List<Category>>(categoryList, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/categoryType/", method = RequestMethod.GET)
+    @RequestMapping(value = "/category/categoryType/", method = RequestMethod.GET)
     public ResponseEntity<List<CategoryType>> getAllCategoryTypes() {
         List<CategoryType> categoryTypeList = categoryService.getAllCategoryTypes();
 

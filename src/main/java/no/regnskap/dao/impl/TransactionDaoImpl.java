@@ -1,7 +1,6 @@
 package no.regnskap.dao.impl;
 
 import no.regnskap.dao.TransactionDao;
-import no.regnskap.domain.Category;
 import no.regnskap.domain.Transaction;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -35,17 +34,22 @@ public class TransactionDaoImpl implements TransactionDao {
     }
 
     @Override
-    public List<Transaction> findTransactionByCategory(Category category) {
+    public List<Transaction> getTransactionsByCategory(long id) {
+        return getSession().createQuery("from Transaction t where t.category.id = " + id).getResultList();
+    }
+
+    @Override
+    public List<Transaction> getTransactionsByUser(String user) {
         return null;
     }
 
     @Override
-    public List<Transaction> findTransactionByUser(String user) {
+    public List<Transaction> getTransactionsByUserAndCategory() {
         return null;
     }
 
     @Override
-    public List<Transaction> findTransactionByUserAndCategory() {
+    public List<Transaction> getTransactionsByDate() {
         return null;
     }
 

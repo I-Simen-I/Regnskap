@@ -56,4 +56,14 @@ public class TransactionRestController {
         }
         return new ResponseEntity<List<Transaction>>(transactionList, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/transaction/category/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Transaction>> getAllTransactionsByCategory(@PathVariable("id") long id) {
+        List<Transaction> transactionList = transactionService.getTransactionsByCategory(id);
+
+        if (transactionList.isEmpty()) {
+            return new ResponseEntity<List<Transaction>>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<List<Transaction>>(transactionList, HttpStatus.OK);
+    }
 }

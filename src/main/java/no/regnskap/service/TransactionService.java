@@ -11,4 +11,6 @@ public interface TransactionService {
     Transaction findById(long id);
 
     List<Transaction> getAllTransactions();
+
+    List<Transaction> getTransactionsByCategory(long id);
 }

@@ -34,4 +34,9 @@ public class TransactionServiceImpl implements TransactionService {
     public List<Transaction> getAllTransactions() {
         return transactionDao.getAllTransactions();
     }
+
+    @Override
+    public List<Transaction> getTransactionsByCategory(long id) {
+        return transactionDao.getTransactionsByCategory(id);
+    }
 }
