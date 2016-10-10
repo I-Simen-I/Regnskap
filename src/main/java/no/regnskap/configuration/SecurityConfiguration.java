@@ -16,13 +16,15 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private static final String REALM = "MY_TEST_REALM";
-    private static final String CATEGORY_USER = "CATEGORY_USER";
-    private static final String TRANSACTION_USER = "TRANSACTION_USER";
+    private static final String CATEGORY_API_ACCESS_ROLE = "CATEGORY_API_ACCESS_ROLE";
+    private static final String TRANSACTION_API_ACCESS_ROLE = "TRANSACTION_API_ACCESS_ROLE";
+    private static final String USER_API_ACCESS_ROLE = "USER_API_ACCESS_ROLE";
 
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser(CATEGORY_USER.toLowerCase()).password("cat").roles(CATEGORY_USER);
-        auth.inMemoryAuthentication().withUser(TRANSACTION_USER.toLowerCase()).password("tra").roles(TRANSACTION_USER);
+        auth.inMemoryAuthentication().withUser("api_cat").password("cat").roles(CATEGORY_API_ACCESS_ROLE);
+        auth.inMemoryAuthentication().withUser("api_tra").password("tra").roles(TRANSACTION_API_ACCESS_ROLE);
+        auth.inMemoryAuthentication().withUser("api_usr").password("usr").roles(USER_API_ACCESS_ROLE);
     }
 
     @Override
@@ -30,8 +32,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/category/**").hasRole(CATEGORY_USER)
-                .antMatchers("/api/transaction/**").hasRole(TRANSACTION_USER)
+                .antMatchers("/api/category/**").hasRole(CATEGORY_API_ACCESS_ROLE)
+                .antMatchers("/api/transaction/**").hasRole(TRANSACTION_API_ACCESS_ROLE)
+                .antMatchers("/api/user/**").hasRole(USER_API_ACCESS_ROLE)
                 .and().httpBasic().realmName(REALM).authenticationEntryPoint(getBasicAuthEntryPoint())
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }

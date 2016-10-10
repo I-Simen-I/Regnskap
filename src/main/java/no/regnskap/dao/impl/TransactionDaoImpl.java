@@ -4,6 +4,7 @@ import no.regnskap.dao.TransactionDao;
 import no.regnskap.domain.Transaction;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -35,7 +36,9 @@ public class TransactionDaoImpl implements TransactionDao {
 
     @Override
     public List<Transaction> getTransactionsByCategory(long id) {
-        return getSession().createQuery("from Transaction t where t.category.id = " + id).getResultList();
+        Query query = getSession().createQuery("from Transaction t where t.category.id = :id");
+        query.setParameter("id", id);
+        return query.list();
     }
 
     @Override
