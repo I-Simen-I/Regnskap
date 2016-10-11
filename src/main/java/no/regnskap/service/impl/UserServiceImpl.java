@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void resetPassword(String emailAddress, String password, String newPassword) {
+    public boolean resetPassword(String emailAddress, String password, String newPassword) {
         boolean validUser = userDao.validateUser(emailAddress, password);
 
         if (validUser) {
@@ -55,6 +55,9 @@ public class UserServiceImpl implements UserService {
             user.setPassword(newPassword);
 
             userDao.updateUser(user);
+
+            return true;
         }
+        return false;
     }
 }
