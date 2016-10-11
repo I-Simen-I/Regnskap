@@ -47,10 +47,9 @@ public class UserDaoImpl implements UserDao {
         return query.list();
     }
 
-    //TODO fix date comparison
     @Override
     public List<User> getUsersByCreatedDate(Date date) {
-        Query query = getSession().createQuery("from User u where u.created = :date");
+        Query query = getSession().createNamedQuery("findUserByCreatedDate");
         query.setParameter("date", date);
 
         return query.list();

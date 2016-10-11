@@ -3,6 +3,15 @@ package no.regnskap.domain;
 import javax.persistence.*;
 import java.util.Date;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "findUserByCreatedDate",
+                query = "FROM User u " +
+                        "WHERE year(u.created) = year(:date) " +
+                        "AND month(u.created) = month(:date)" +
+                        "AND day(u.created) = day(:date)"
+        )
+})
 @Entity
 @Table(name = "USER")
 public class User {
