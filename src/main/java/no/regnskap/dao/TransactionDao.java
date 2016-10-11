@@ -1,5 +1,6 @@
 package no.regnskap.dao;
 
+import no.regnskap.domain.CategoryType;
 import no.regnskap.domain.Transaction;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public interface TransactionDao {
 
     List<Transaction> getTransactionsByUser(long id);
 
-    List<Transaction> getTransactionsByUserAndCategory();
+    List<Transaction> getTransactionsByUserAndCategoryType(long userId, CategoryType categoryType);
 
     List<Transaction> getTransactionsByDate();
 }

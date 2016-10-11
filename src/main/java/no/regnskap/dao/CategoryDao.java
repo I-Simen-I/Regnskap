@@ -13,5 +13,7 @@ public interface CategoryDao {
 
     List<Category> getAllCategories();
 
+    CategoryType findCategoryTypeById(String id);
+
     List<CategoryType> getAllCategoryTypes();
 }

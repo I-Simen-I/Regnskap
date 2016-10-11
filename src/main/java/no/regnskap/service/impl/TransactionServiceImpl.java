@@ -1,6 +1,8 @@
 package no.regnskap.service.impl;
 
+import no.regnskap.dao.CategoryDao;
 import no.regnskap.dao.TransactionDao;
+import no.regnskap.domain.CategoryType;
 import no.regnskap.domain.Transaction;
 import no.regnskap.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +16,12 @@ import java.util.List;
 public class TransactionServiceImpl implements TransactionService {
 
     private final TransactionDao transactionDao;
+    private final CategoryDao categoryDao;
 
     @Autowired
-    public TransactionServiceImpl(TransactionDao transactionDao) {
+    public TransactionServiceImpl(TransactionDao transactionDao, CategoryDao categoryDao) {
         this.transactionDao = transactionDao;
+        this.categoryDao = categoryDao;
     }
 
     @Override
@@ -43,5 +47,12 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public List<Transaction> getTransactionsByUser(long id) {
         return transactionDao.getTransactionsByUser(id);
+    }
+
+    @Override
+    public List<Transaction> getTransactionsByUserAndCategoryType(long userId, String categoryTypeId) {
+        CategoryType categoryType = categoryDao.findCategoryTypeById(categoryTypeId);
+
+        return transactionDao.getTransactionsByUserAndCategoryType(userId, categoryType);
     }
 }

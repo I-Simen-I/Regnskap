@@ -5,6 +5,7 @@ import no.regnskap.domain.Category;
 import no.regnskap.domain.CategoryType;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -32,6 +33,14 @@ public class CategoryDaoImpl implements CategoryDao {
     @Override
     public List<Category> getAllCategories() {
         return getSession().createQuery("from Category").getResultList();
+    }
+
+    @Override
+    public CategoryType findCategoryTypeById(String id) {
+        Query query = getSession().createQuery("from CategoryType ct where ct.categoryType = :id");
+        query.setParameter("id", id);
+
+        return (CategoryType) query.uniqueResult();
     }
 
     @Override

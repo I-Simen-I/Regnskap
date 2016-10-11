@@ -15,4 +15,6 @@ public interface TransactionService {
     List<Transaction> getTransactionsByCategory(long id);
 
     List<Transaction> getTransactionsByUser(long id);
+
+    List<Transaction> getTransactionsByUserAndCategoryType(long userId, String categoryTypeName);
 }

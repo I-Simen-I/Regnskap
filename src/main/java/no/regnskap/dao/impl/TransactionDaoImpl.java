@@ -1,6 +1,7 @@
 package no.regnskap.dao.impl;
 
 import no.regnskap.dao.TransactionDao;
+import no.regnskap.domain.CategoryType;
 import no.regnskap.domain.Transaction;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -50,8 +51,12 @@ public class TransactionDaoImpl implements TransactionDao {
     }
 
     @Override
-    public List<Transaction> getTransactionsByUserAndCategory() {
-        return null;
+    public List<Transaction> getTransactionsByUserAndCategoryType(long userId, CategoryType categoryType) {
+        Query query = getSession().createQuery("from Transaction t where t.user.id = :userId and t.category.categoryType = :categoryType");
+        query.setParameter("userId", userId);
+        query.setParameter("categoryType", categoryType);
+
+        return query.list();
     }
 
     @Override
