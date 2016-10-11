@@ -55,6 +55,22 @@ public class UserDaoImpl implements UserDao {
         return query.list();
     }
 
+    @Override
+    public boolean validateUser(String emailAddress, String password) {
+        Query query = getSession().createQuery("from User u where u.emailAddress = :emailAddress and u.password = :password");
+        query.setParameter("emailAddress", emailAddress);
+        query.setParameter("password", password);
+
+        User user = (User) query.uniqueResult();
+
+        return user != null;
+    }
+
+    @Override
+    public void updateUser(User user) {
+        getSession().merge(user);
+    }
+
     private Session getSession() {
         return sessionFactory.getCurrentSession();
     }

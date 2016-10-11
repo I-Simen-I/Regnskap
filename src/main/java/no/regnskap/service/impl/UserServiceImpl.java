@@ -45,4 +45,16 @@ public class UserServiceImpl implements UserService {
     public List<User> getUsersByCreatedDate(Date date) {
         return userDao.getUsersByCreatedDate(date);
     }
+
+    @Override
+    public void resetPassword(String emailAddress, String password, String newPassword) {
+        boolean validUser = userDao.validateUser(emailAddress, password);
+
+        if (validUser) {
+            User user = userDao.getUserByEmailAddress(emailAddress);
+            user.setPassword(newPassword);
+
+            userDao.updateUser(user);
+        }
+    }
 }

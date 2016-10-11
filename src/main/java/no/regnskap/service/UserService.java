@@ -15,4 +15,6 @@ public interface UserService {
     List<User> getUserByLastName(String lastName);
 
     List<User> getUsersByCreatedDate(Date date);
+
+    void resetPassword(String emailAddress, String password, String newPassword);
 }

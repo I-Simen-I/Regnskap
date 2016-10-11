@@ -15,4 +15,8 @@ public interface UserDao {
     List<User> getUserByLastName(String lastName);
 
     List<User> getUsersByCreatedDate(Date date);
+
+    boolean validateUser(String emailAddress, String password);
+
+    void updateUser(User user);
 }

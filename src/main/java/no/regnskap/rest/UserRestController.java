@@ -77,4 +77,11 @@ public class UserRestController {
 
         return new ResponseEntity<List<User>>(userList, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/resetPassword", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> resetPassword(@RequestParam(value = "emailAddress") String emailAddress, @RequestParam(value = "oldPassword") String pasword, @RequestParam(value = "newPassword") String newPassword) {
+        userService.resetPassword(emailAddress, pasword, newPassword);
+
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
 }
