@@ -26,6 +26,11 @@ public class TransactionDaoImpl implements TransactionDao {
     }
 
     @Override
+    public void delete(Transaction transaction) {
+        getSession().delete(transaction);
+    }
+
+    @Override
     public Transaction findById(long id) {
         return getSession().get(Transaction.class, id);
     }

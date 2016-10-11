@@ -30,6 +30,18 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
+    public boolean delete(long id) {
+        Transaction transaction = transactionDao.findById(id);
+
+        if (transaction != null) {
+            transactionDao.delete(transaction);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     public Transaction findById(long id) {
         return transactionDao.findById(id);
     }

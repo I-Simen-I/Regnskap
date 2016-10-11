@@ -8,6 +8,8 @@ public interface TransactionService {
 
     void save(Transaction transaction);
 
+    boolean delete(long id);
+
     Transaction findById(long id);
 
     List<Transaction> getAllTransactions();

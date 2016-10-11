@@ -9,6 +9,8 @@ public interface TransactionDao {
 
     void save(Transaction transaction);
 
+    void delete(Transaction transaction);
+
     Transaction findById(long id);
 
     List<Transaction> getAllTransactions();

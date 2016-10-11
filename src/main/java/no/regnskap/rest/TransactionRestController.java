@@ -36,6 +36,15 @@ public class TransactionRestController {
         return new ResponseEntity<Void>(httpHeaders, HttpStatus.CREATED);
     }
 
+    @RequestMapping(value = "/transaction/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> delete(@PathVariable("id") long id) {
+        if (transactionService.delete(id)) {
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+        }
+    }
+
     @RequestMapping(value = "/transaction/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Transaction> findById(@PathVariable("id") long id) {
         Transaction transaction = transactionService.findById(id);
