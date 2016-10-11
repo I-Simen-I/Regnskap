@@ -39,4 +39,9 @@ public class TransactionServiceImpl implements TransactionService {
     public List<Transaction> getTransactionsByCategory(long id) {
         return transactionDao.getTransactionsByCategory(id);
     }
+
+    @Override
+    public List<Transaction> getTransactionsByUser(long id) {
+        return transactionDao.getTransactionsByUser(id);
+    }
 }

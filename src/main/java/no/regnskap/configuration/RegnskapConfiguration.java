@@ -64,6 +64,7 @@ public class RegnskapConfiguration {
         return new Properties() {
             {
                 setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+                setProperty("hibernate.id.new_generator_mappings", "false");
             }
         };
     }

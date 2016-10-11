@@ -14,7 +14,7 @@ public interface TransactionDao {
 
     List<Transaction> getTransactionsByCategory(long id);
 
-    List<Transaction> getTransactionsByUser(String user);
+    List<Transaction> getTransactionsByUser(long id);
 
     List<Transaction> getTransactionsByUserAndCategory();
 

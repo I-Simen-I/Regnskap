@@ -42,8 +42,11 @@ public class TransactionDaoImpl implements TransactionDao {
     }
 
     @Override
-    public List<Transaction> getTransactionsByUser(String user) {
-        return null;
+    public List<Transaction> getTransactionsByUser(long id) {
+        Query query = getSession().createQuery("from Transaction t where t.user.id = :id");
+        query.setParameter("id", id);
+
+        return query.list();
     }
 
     @Override

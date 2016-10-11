@@ -13,4 +13,6 @@ public interface TransactionService {
     List<Transaction> getAllTransactions();
 
     List<Transaction> getTransactionsByCategory(long id);
+
+    List<Transaction> getTransactionsByUser(long id);
 }
