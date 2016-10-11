@@ -37,7 +37,7 @@ public class User {
     private String password;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "CREATED", nullable = false)
+    @Column(name = "CREATED")
     private Date created;
 
     public long getUserId() {

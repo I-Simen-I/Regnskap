@@ -20,7 +20,7 @@ public class Category {
     private CategoryType categoryType;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "CREATED", nullable = false)
+    @Column(name = "CREATED")
     private Date created;
 
     @ManyToOne

@@ -22,7 +22,7 @@ public class Transaction {
     private double sum;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "CREATED", nullable = false)
+    @Column(name = "CREATED")
     private Date created;
 
     @ManyToOne
