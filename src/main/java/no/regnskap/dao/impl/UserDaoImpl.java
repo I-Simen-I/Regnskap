@@ -71,6 +71,11 @@ public class UserDaoImpl implements UserDao {
         getSession().merge(user);
     }
 
+    @Override
+    public void saveUser(User user) {
+        getSession().save(user);
+    }
+
     private Session getSession() {
         return sessionFactory.getCurrentSession();
     }

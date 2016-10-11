@@ -4,10 +4,12 @@ import no.regnskap.domain.User;
 import no.regnskap.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Date;
 import java.util.List;
@@ -87,5 +89,18 @@ public class UserRestController {
         } else {
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
         }
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<Void> save(@RequestBody User user, UriComponentsBuilder ucBuilder) {
+        if (userService.getUserById(user.getUserId()) != null) {
+            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+        }
+
+        userService.saveUser(user);
+
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setLocation(ucBuilder.path("{id}").buildAndExpand(user.getUserId()).toUri());
+        return new ResponseEntity<Void>(httpHeaders, HttpStatus.CREATED);
     }
 }

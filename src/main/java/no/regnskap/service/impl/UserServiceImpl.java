@@ -60,4 +60,9 @@ public class UserServiceImpl implements UserService {
         }
         return false;
     }
+
+    @Override
+    public void saveUser(User user) {
+        userDao.saveUser(user);
+    }
 }
