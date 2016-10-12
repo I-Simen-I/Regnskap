@@ -1,14 +1,15 @@
 # Regnskap-Core
 
 ### Rammeverk
-* Hibernate
-* Spring
+* [Hibernate](http://hibernate.org/)
+* [Spring](https://spring.io/)
 
 ### Utviklingsmiljø
-* Java 8
-* Tomcat 9
-* MySql
-* Intellij IDEA
+* [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Tomcat 9](https://tomcat.apache.org/download-90.cgi) 
+* [MySql](http://dev.mysql.com/downloads/mysql/)
+* [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+* [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
 
 ### Kjøre og deploye applikasjonen med IntelliJ IDEA
 1. Åpne modul settings
@@ -20,6 +21,11 @@
 7. Gå til fanen Deploy og legg til artifakten Regnskap
 8. Start server
 9. Gå til http://localhost:8080/api/category/
+
+
+###Postman
+1. Gå til Collections
+2. Importer filen [src/main/resources/config/postman/Regnskap.postman_collection.json]()
 
 ### YouTrack
 * Link: http://sohol.myjetbrains.com
