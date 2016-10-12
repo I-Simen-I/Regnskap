@@ -25,7 +25,7 @@
 
 ###Postman
 1. Gå til Collections
-2. Importer filen [src/main/resources/config/postman/Regnskap.postman_collection.json]()
+2. Importer filen [src/main/resources/config/postman/Regnskap.postman_collection.json](/src/main/resources/config/postman/Regnskap.postman_collection.json)
 
 ### YouTrack
 * Link: http://sohol.myjetbrains.com
