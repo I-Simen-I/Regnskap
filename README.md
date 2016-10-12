@@ -9,7 +9,7 @@
 * [Tomcat 9](https://tomcat.apache.org/download-90.cgi) 
 * [MySql](http://dev.mysql.com/downloads/mysql/)
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
-* [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
+* [Postman](https://www.getpostman.com/)
 
 ### Kjøre og deploye applikasjonen med IntelliJ IDEA
 1. Åpne modul settings
