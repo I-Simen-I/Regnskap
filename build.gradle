@@ -1,0 +1,43 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'no.regnskap'
+version = '0.0.1-SNAPSHOT'
+
+description = "Regnskap-Core"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    springframeworkVersion = '4.3.3.RELEASE'
+    springsecurityVersion = '4.1.3.RELEASE'
+    hibernateVersion = '5.2.3.Final'
+
+    mySQLDriverVersion = '5.1.31'
+    javaxServletVersion = '3.1.0'
+    apacheTomcatVersion = '9.0.0.M10'
+    jacksonVersion = '2.8.3'
+
+    junitVersion = '4.12'
+    hamcrestVersion = '1.3'
+}
+
+repositories {
+    maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+    compile "org.springframework:spring-orm:$springframeworkVersion"
+    compile "org.springframework:spring-webmvc:$springframeworkVersion"
+    compile "org.springframework.security:spring-security-web:$springsecurityVersion"
+    compile "org.springframework.security:spring-security-config:$springsecurityVersion"
+    compile "org.hibernate:hibernate-core:$hibernateVersion"
+    compile "javax.servlet:javax.servlet-api:$javaxServletVersion"
+    compile "org.apache.tomcat:tomcat-dbcp:$apacheTomcatVersion"
+    compile "mysql:mysql-connector-java:$mySQLDriverVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+
+    compile "org.hamcrest:hamcrest-core:$hamcrestVersion"
+    compile "junit:junit:$junitVersion"
+}

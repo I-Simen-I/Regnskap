@@ -1,5 +1,6 @@
 # Folders #
 .idea/*
+.gradle/*
 out/*
 classes/*
 target/*
