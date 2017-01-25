@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
+    @Transactional
     public void save(Category category) {
         getSession().save(category);
     }

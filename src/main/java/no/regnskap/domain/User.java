@@ -91,4 +91,21 @@ public class User {
     public void setCreated(Date created) {
         this.created = created;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        boolean result = false;
+
+        if (other instanceof User) {
+            User otherUser = (User) other;
+            result = (this.userId == otherUser.userId);
+        }
+
+        return result;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (userId ^ (userId >>> 32));
+    }
 }

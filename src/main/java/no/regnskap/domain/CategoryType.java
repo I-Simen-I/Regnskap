@@ -31,4 +31,21 @@ public class CategoryType {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        boolean result = false;
+
+        if (other instanceof CategoryType) {
+            CategoryType otherCategoryType = (CategoryType) other;
+            result = (this.categoryType.equals(otherCategoryType.categoryType));
+        }
+
+        return result;
+    }
+
+    @Override
+    public int hashCode() {
+        return categoryType != null ? categoryType.hashCode() : 0;
+    }
 }

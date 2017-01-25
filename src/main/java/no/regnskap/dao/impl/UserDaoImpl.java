@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -67,11 +68,13 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    @Transactional
     public void updateUser(User user) {
         getSession().merge(user);
     }
 
     @Override
+    @Transactional
     public void saveUser(User user) {
         getSession().save(user);
     }

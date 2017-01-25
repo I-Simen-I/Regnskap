@@ -77,4 +77,21 @@ public class Category {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        boolean result = false;
+
+        if (other instanceof Category) {
+            Category otherCategory = (Category) other;
+            result = (this.categoryId == otherCategory.categoryId);
+        }
+
+        return result;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (categoryId ^ (categoryId >>> 32));
+    }
 }

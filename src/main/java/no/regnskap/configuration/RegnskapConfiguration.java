@@ -2,11 +2,9 @@ package no.regnskap.configuration;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -22,14 +20,11 @@ import java.util.Properties;
 @ComponentScan(basePackages = "no.regnskap")
 public class RegnskapConfiguration {
 
-    @Autowired
-    Environment environment;
-
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(restDataSource());
-        sessionFactory.setPackagesToScan(new String[]{"no.regnskap"});
+        sessionFactory.setPackagesToScan("no.regnskap.domain");
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;
@@ -47,7 +42,6 @@ public class RegnskapConfiguration {
     }
 
     @Bean
-    @Autowired
     public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
         HibernateTransactionManager txManager = new HibernateTransactionManager();
         txManager.setSessionFactory(sessionFactory);

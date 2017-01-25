@@ -76,4 +76,21 @@ public class Transaction {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        boolean result = false;
+
+        if (other instanceof Transaction) {
+            Transaction otherTransaction = (Transaction) other;
+            result = (this.transactionId == otherTransaction.transactionId);
+        }
+
+        return result;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (transactionId ^ (transactionId >>> 32));
+    }
 }

@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,11 +22,13 @@ public class TransactionDaoImpl implements TransactionDao {
     }
 
     @Override
+    @Transactional
     public void save(Transaction transaction) {
         getSession().save(transaction);
     }
 
     @Override
+    @Transactional
     public void delete(Transaction transaction) {
         getSession().delete(transaction);
     }
