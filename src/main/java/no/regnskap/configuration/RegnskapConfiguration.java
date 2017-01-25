@@ -34,7 +34,7 @@ public class RegnskapConfiguration {
     public DataSource restDataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://192.168.0.50:3306/regnskap");
+        dataSource.setUrl("jdbc:mysql://192.168.0.50:33777/regnskap");
         dataSource.setUsername("regnskap");
         dataSource.setPassword("regnskap_1234");
 
