@@ -29,6 +29,19 @@ public class Transaction {
     @JoinColumn(name = "USER_ID", nullable = false)
     private User user;
 
+    public Transaction() {
+
+    }
+
+    public Transaction(long transactionId, Category category, String description, double sum, Date created, User user) {
+        this.transactionId = transactionId;
+        this.category = category;
+        this.description = description;
+        this.sum = sum;
+        this.created = created;
+        this.user = user;
+    }
+
     public long getTransactionId() {
         return transactionId;
     }

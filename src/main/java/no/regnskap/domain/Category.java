@@ -31,11 +31,12 @@ public class Category {
 
     }
 
-    public Category(String name, CategoryType categoryType, Date created, User user) {
-        setName(name);
-        setCategoryType(categoryType);
-        setCreated(created);
-        setUser(user);
+    public Category(long id, String name, CategoryType categoryType, Date created, User user) {
+        this.categoryId = id;
+        this.name = name;
+        this.categoryType = categoryType;
+        this.created = created;
+        this.user = user;
     }
 
     public long getCategoryId() {

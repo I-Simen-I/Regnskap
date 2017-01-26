@@ -10,35 +10,25 @@ public class CategoryTypeTest {
 
     @Test
     public void isEqualWhenCategoryTypeHaveSameId() throws Exception {
-        CategoryType c1 = aCategoryType()
-                .withCategoryType("INCOME")
-                .build();
+        CategoryType c1 = aCategoryType().withCategoryType("INCOME").build();
 
-        CategoryType c2 = aCategoryType()
-                .withCategoryType("INCOME")
-                .build();
+        CategoryType c2 = aCategoryType().withCategoryType("INCOME").build();
 
         assertTrue(c1.equals(c2));
     }
 
     @Test
     public void isNotEqualWhenCategoryTypeHaveSameId() throws Exception {
-        CategoryType c1 = aCategoryType()
-                .withCategoryType("INCOME")
-                .build();
+        CategoryType c1 = aCategoryType().withCategoryType("INCOME").build();
 
-        CategoryType c2 = aCategoryType()
-                .withCategoryType("SAVINGS")
-                .build();
+        CategoryType c2 = aCategoryType().withCategoryType("SAVINGS").build();
 
         assertFalse(c1.equals(c2));
     }
 
     @Test
     public void isNotEqualWhenCategoryTypeIdIsNull() throws Exception {
-        CategoryType c1 = aCategoryType()
-                .withCategoryType("INCOME")
-                .build();
+        CategoryType c1 = aCategoryType().withCategoryType("INCOME").build();
 
         CategoryType c2 = aCategoryType().build();
 
@@ -47,9 +37,7 @@ public class CategoryTypeTest {
 
     @Test
     public void isNotEqualWhenCategoryTypeIsNull() throws Exception {
-        CategoryType c1 = aCategoryType()
-                .withCategoryType("INCOME")
-                .build();
+        CategoryType c1 = aCategoryType().withCategoryType("INCOME").build();
 
         assertFalse(c1.equals(null));
     }

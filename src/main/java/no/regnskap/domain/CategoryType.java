@@ -16,6 +16,10 @@ public class CategoryType {
     @Column(name = "NAME", nullable = false)
     private String name;
 
+    public CategoryType() {
+
+    }
+
     public CategoryType(String categoryType, String name) {
         this.categoryType = categoryType;
         this.name = name;

@@ -40,6 +40,20 @@ public class User {
     @Column(name = "CREATED")
     private Date created;
 
+    public User() {
+
+    }
+
+    public User(long userId, String firstName, String middleName, String lastName, String emailAddress, String password, Date created) {
+        this.userId = userId;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.emailAddress = emailAddress;
+        this.password = password;
+        this.created = created;
+    }
+
     public long getUserId() {
         return userId;
     }
