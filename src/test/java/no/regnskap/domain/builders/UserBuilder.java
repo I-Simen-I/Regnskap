@@ -1,4 +1,4 @@
-package no.regnskap.domain.Builders;
+package no.regnskap.domain.builders;
 
 
 import no.regnskap.domain.User;

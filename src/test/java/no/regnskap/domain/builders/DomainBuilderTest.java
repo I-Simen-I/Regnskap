@@ -1,11 +1,11 @@
-package no.regnskap.domain.Builders;
+package no.regnskap.domain.builders;
 
 import no.regnskap.domain.Transaction;
 import org.junit.Test;
 
 import java.util.Date;
 
-import static no.regnskap.domain.Builders.DomainBuilder.*;
+import static no.regnskap.domain.builders.DomainBuilder.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 

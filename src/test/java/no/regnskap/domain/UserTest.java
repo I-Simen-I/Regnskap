@@ -1,6 +1,6 @@
 package no.regnskap.domain;
 
-import no.regnskap.domain.Builders.DomainBuilder;
+import no.regnskap.domain.builders.DomainBuilder;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
