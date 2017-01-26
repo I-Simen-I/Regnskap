@@ -1,4 +1,4 @@
-package no.regnskap.domain.Buillders;
+package no.regnskap.domain.Builders;
 
 import no.regnskap.domain.Category;
 

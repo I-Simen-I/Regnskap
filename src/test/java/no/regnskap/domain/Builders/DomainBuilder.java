@@ -1,4 +1,4 @@
-package no.regnskap.domain.Buillders;
+package no.regnskap.domain.Builders;
 
 
 public class DomainBuilder {
