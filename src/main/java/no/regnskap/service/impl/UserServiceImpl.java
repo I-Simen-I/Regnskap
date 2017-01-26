@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
 import java.util.List;
 
-@Service("userService")
+@Service
 @Transactional
 public class UserServiceImpl implements UserService {
 
