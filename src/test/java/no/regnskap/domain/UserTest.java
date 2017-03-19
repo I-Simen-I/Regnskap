@@ -2,7 +2,7 @@ package no.regnskap.domain;
 
 import org.junit.Test;
 
-import static no.regnskap.domain.builders.DomainBuilder.aUser;
+import static no.regnskap.domain.builders.UserBuilder.aUser;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 

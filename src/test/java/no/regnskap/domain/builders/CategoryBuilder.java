@@ -1,15 +1,23 @@
 package no.regnskap.domain.builders;
 
 import no.regnskap.domain.Category;
+import no.regnskap.domain.CategoryType;
 
 import java.util.Date;
 
 public class CategoryBuilder {
     private long categoryId;
     private String name;
-    private CategoryTypeBuilder categoryType;
+    private TypeBuilder<CategoryType> categoryType;
     private Date created;
     private UserBuilder user;
+
+    private CategoryBuilder() {
+    }
+
+    public static CategoryBuilder aCategory() {
+        return new CategoryBuilder();
+    }
 
     public CategoryBuilder with(long categoryId) {
         this.categoryId = categoryId;
@@ -26,7 +34,7 @@ public class CategoryBuilder {
         return this;
     }
 
-    public CategoryBuilder with(CategoryTypeBuilder categoryType) {
+    public CategoryBuilder with(TypeBuilder<CategoryType> categoryType) {
         this.categoryType = categoryType;
         return this;
     }

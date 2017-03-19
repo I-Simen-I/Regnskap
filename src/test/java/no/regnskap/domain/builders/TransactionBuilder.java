@@ -13,6 +13,13 @@ public class TransactionBuilder {
     private Date created;
     private UserBuilder user;
 
+    private TransactionBuilder() {
+    }
+
+    public static TransactionBuilder aTransaction() {
+        return new TransactionBuilder();
+    }
+
     public TransactionBuilder with(long transactionId) {
         this.transactionId = transactionId;
         return this;

@@ -1,15 +1,24 @@
 package no.regnskap.domain.builders;
 
+import no.regnskap.domain.CategoryType;
+import no.regnskap.domain.DummyTypeClass;
 import no.regnskap.domain.Transaction;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.Date;
 
-import static no.regnskap.domain.builders.DomainBuilder.*;
+import static no.regnskap.domain.builders.CategoryBuilder.aCategory;
+import static no.regnskap.domain.builders.TransactionBuilder.aTransaction;
+import static no.regnskap.domain.builders.TypeBuilder.aBuilderOfType;
+import static no.regnskap.domain.builders.UserBuilder.aUser;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class DomainBuilderTest {
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void buildAValidTransaction() {
@@ -21,9 +30,9 @@ public class DomainBuilderTest {
                 .with(aCategory()
                         .with(1L)
                         .with("Mat")
-                        .with(aCategoryType()
+                        .with(aBuilderOfType(CategoryType.class)
                                 .withName("Utgift")
-                                .withCategoryType("EXPENSE")
+                                .withTypeId("EXPENSE")
                         )
                         .with(new Date())
                 )
@@ -44,4 +53,11 @@ public class DomainBuilderTest {
         assertThat(transaction.getUser().getEmailAddress(), is("s.soli@email.com"));
     }
 
+    @Test
+    public void typeBuilderThrowsExceptionWhenTypeClassDoesNotHaveSupportedConstructor() {
+        expectedException.expect(UnsupportedOperationException.class);
+        expectedException.expectMessage("The typeclass DummyTypeClass needs a constructor with parameter typeId and name");
+
+        aBuilderOfType(DummyTypeClass.class).build();
+    }
 }

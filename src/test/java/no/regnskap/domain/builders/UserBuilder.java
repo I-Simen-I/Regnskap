@@ -15,6 +15,12 @@ public class UserBuilder {
     private String password;
     private Date created;
 
+    private UserBuilder() {
+    }
+
+    public static UserBuilder aUser() {
+        return new UserBuilder();
+    }
 
     public UserBuilder with(long userId) {
         this.userId = userId;
