@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   regnskap_db:
@@ -18,8 +18,9 @@ services:
     container_name: regnskap_core
     depends_on:
       - regnskap_db
+    links:
+      - regnskap_db
     build:
       context: ./tomcat
-      dockerfile: tomcat/Dockerfile
     ports:
       - 8080:8080
