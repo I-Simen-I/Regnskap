@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  regnskap_db:
+    image: mysql:latest
+    container_name: regnskap_db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassord
+      MYSQL_USER: regnskap
+      MYSQL_PASSWORD: regnskap_1234
+      MYSQL_DATABASE: regnskap
+    ports:
+    - 33777:3306
+    volumes:
+      - ./mysql/db_setup/:/docker-entrypoint-initdb.d
+
+  regnskap-core:
+    container_name: regnskap_core
+    depends_on:
+      - regnskap_db
+    build:
+      context: ./tomcat
+      dockerfile: tomcat/Dockerfile
+    ports:
+      - 8080:8080

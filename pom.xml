@@ -11,9 +11,9 @@
         <springframework.version>4.3.3.RELEASE</springframework.version>
         <springsecurity.version>4.1.3.RELEASE</springsecurity.version>
         <hibernate.version>5.2.3.Final</hibernate.version>
-        <mySQL.driver.version>5.1.31</mySQL.driver.version>
+        <mySQL.driver.version>6.0.6</mySQL.driver.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
-        <apache.tomcat.version>9.0.0.M10</apache.tomcat.version>
+        <apache.tomcat.version>9.0.0.M26</apache.tomcat.version>
         <jackson.version>2.8.3</jackson.version>
 
         <!-- Test -->
