@@ -4,6 +4,7 @@ out/*
 classes/*
 target/*
 lib/*
+docker-dir/jenkins/setup/jenkins_home/*
 
 # Files #
 *.class
