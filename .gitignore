@@ -4,6 +4,7 @@ out/*
 classes/*
 target/*
 lib/*
+jenkins_home/*
 
 # Files #
 *.class
