@@ -1,2 +1,2 @@
-FROM jenkins:alpine
-USER jenkins
+FROM jenkinsci/blueocean:latest
+USER root
